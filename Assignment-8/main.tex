@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning,shapes.gates.logic.US}
+
+\title{EC-2014-2}
+\author{dilip}
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+
+\begin{figure}[h]
+    \centering
+    \scalebox{0.65}{
+    \input{figures/ques.tex}}
+    \caption{Question Diagram}
+    \label{fig:my_label}
+\end{figure}
+
+Current option is
+
+\begin{enumerate}[label=(\alph*)]
+    \item JK flip-flop
+    \item SR flip-flop
+    \item D flip-flop
+    \item Master-slave arrangement
+\end{enumerate}
+
+\section{Answer} 
+ The correct option is d)Master-slave arrangement
+ \subsection{Master-Slave D flip flop}
+  The basic D-type flip flop can be improved further by adding a second SR flip flop to its output that is activated on the complementary clock signal to produce a "Master-Slave D-type flip flop".On the leading edge of the clock signal( LOW-to-HIGH)the first stage, the "master" latches the input condition at D,while the output stage is deactivated.
+  \paragraph{}
+  On the trailing edge of the clock signal (HIGH-to-LOW), the second"slave" stage is now activated, latching on to the output from the first master circuit. Then the output stage appears to be triggered on the negative edge of the clock pulse." Master-Slave D-type flip flop" can be constructed by the cascading together of two latches with opposite clock phases as shown.
+\begin{figure}[h]
+\centering
+\scalebox{0.7}{
+  \includegraphics[]{circuit.png} }
+\end{figure}
+  \paragraph{}
+  We can see from above that on the leading edge of the clock pulse the master flip-flop will be loading data from the data D input, therefore the master is "ON". With the trailing edge of the clock pulse, the slave flip-flop is loading data,i.e.the slave is "ON".Then there will always be one flip-flop"ON" and the other "OFF" but never both the master and slave "ON" at the same time.Therefore, the output Q acquires the value of D,only when one complete pulse,ie,0-1- is applied to clock input.
+\end{document}
