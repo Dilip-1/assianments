@@ -1,0 +1,18 @@
+\begin{tikzpicture}[node distance=2cm and 1cm,>=stealth',auto, every place/.style={draw}]
+    \node [place] (00) {00};
+    \coordinate[node distance=1.1cm,left of=00](left-00);
+    \coordinate[node distance=1.1cm,right of=00](right-00);
+    
+    \node [place] (01) [right=of 00] {01};
+    \node [place] (10) [node distance=1.5cm,below =of right-00] {10};    
+    \node [state,initial text=,accepting by double] (11) [right=of 10] {11};
+
+    \path[->] (00) edge [bend left] node {1/0} (01);
+    \path[->] (01) edge [bend left] node {0/1} (00);
+    \path[->] (00) edge [loop above]node{0/0}();
+    \path[->] (10) edge [bend left] node {0/1} (00);
+    \path[->] (01) edge [bend left] node {1/0} (11);
+    \path[->] (10) edge [loop below] node {1/0} ();
+    \path[->] (11) edge [bend left] node {1/0} (10); 
+    \path[->] (11) edge [] node{0/1}(00);
+\end{tikzpicture}
